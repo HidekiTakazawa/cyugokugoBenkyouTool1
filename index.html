@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国語学習アシスタント</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>中国語学習アシスタント</h1>
+
+        <div class="task-selector">
+            <label for="task-type">学習タスクを選択:</label>
+            <select id="task-type">
+                <option value="correction">中国語文章の添削依頼</option>
+                <option value="composition">中国語の作文依頼</option>
+                <option value="explanation">中国語の文章の日本語訳・文法説明依頼</option>
+            </select>
+        </div>
+
+        <!-- 添削依頼フォーム -->
+        <div id="correction-form" class="task-form">
+            <h2>中国語文章の添削依頼</h2>
+            <label for="correction-japanese-text">日本語文章:</label>
+            <textarea id="correction-japanese-text" rows="3"></textarea>
+            <label for="correction-chinese-translation">中国語訳した文章:</label>
+            <textarea id="correction-chinese-translation" rows="5"></textarea>
+            <button id="correction-generate-prompt-btn">AI添削依頼を作成</button>
+        </div>
+
+        <!-- 作文依頼フォーム -->
+        <div id="composition-form" class="task-form" style="display: none;">
+            <h2>中国語の作文依頼</h2>
+            <label for="composition-japanese-text">中国語に翻訳したい日本語の文章:</label>
+            <textarea id="composition-japanese-text" rows="5"></textarea>
+            <button id="composition-generate-prompt-btn">AI翻訳依頼を作成</button>
+        </div>
+
+        <!-- 日本語訳・文法説明依頼フォーム -->
+        <div id="explanation-form" class="task-form" style="display: none;">
+            <h2>中国語の文章の日本語訳及び文法の説明依頼</h2>
+            <label for="explanation-chinese-query">AIに尋ねたい中国語の文章:</label>
+            <textarea id="explanation-chinese-query" rows="5"></textarea>
+            <button id="explanation-generate-prompt-btn">AI説明依頼を作成</button>
+        </div>
+
+        <div class="prompt-section">
+            <h3>AIへの依頼文章</h3>
+            <textarea id="generated-prompt-area" rows="8" readonly placeholder="ここにAIへの依頼文章が表示されます"></textarea>
+            <button id="copy-prompt-btn">依頼文章をクリップボードにコピー</button>
+        </div>
+
+        <div class="response-section">
+            <h3>AIの回答</h3>
+            <textarea id="ai-response-area" rows="8" placeholder="AIの回答をここに貼り付けてください"></textarea>
+        </div>
+        
+        <input type="hidden" id="editing-item-id">
+        <button id="save-data-btn">この内容を保存</button>
+        <button id="clear-form-btn" style="display: none;">フォームをクリア</button>
+
+
+        <h2>保存済みデータ一覧</h2>
+        <div id="data-list-container">
+            <p>保存されているデータはありません。</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

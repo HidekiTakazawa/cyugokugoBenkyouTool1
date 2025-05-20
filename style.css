@@ -1,0 +1,141 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* paddingを含めた幅計算 */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#copy-prompt-btn {
+    background-color: #28a745;
+}
+#copy-prompt-btn:hover {
+    background-color: #1e7e34;
+}
+
+#save-data-btn {
+    background-color: #17a2b8;
+}
+#save-data-btn:hover {
+    background-color: #117a8b;
+}
+
+#clear-form-btn {
+    background-color: #ffc107;
+    color: #212529;
+}
+#clear-form-btn:hover {
+    background-color: #e0a800;
+}
+
+
+.task-form {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.prompt-section, .response-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#data-list-container {
+    margin-top: 30px;
+}
+
+.data-item {
+    background: #e9ecef;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.data-item h4 {
+    margin-top: 0;
+}
+
+.data-item p {
+    white-space: pre-wrap; /* 改行を保持 */
+    word-break: break-all; /* 長い単語も折り返す */
+}
+
+.data-item button {
+    background-color: #dc3545;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+.data-item button.edit-btn {
+    background-color: #ffc107;
+    color: #212529;
+}
+.data-item button.edit-btn:hover {
+    background-color: #e0a800;
+}
+.data-item button.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* スマホ表示調整 */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 15px;
+    }
+    button {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
