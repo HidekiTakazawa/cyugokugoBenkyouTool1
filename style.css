@@ -73,6 +73,14 @@ button:hover {
     background-color: #e0a800;
 }
 
+#backup-data-btn {
+    background-color: #6c757d;
+    margin-bottom: 15px; /* データ一覧との間隔調整 */
+}
+#backup-data-btn:hover {
+    background-color: #5a6268;
+}
+
 
 .task-form {
     border: 1px solid #eee;
@@ -88,7 +96,7 @@ button:hover {
 }
 
 #data-list-container {
-    margin-top: 30px;
+    margin-top: 10px; /* バックアップボタンとの間隔調整 */
 }
 
 .data-item {
@@ -97,31 +105,70 @@ button:hover {
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ced4da;
+    cursor: pointer; /* クリック可能であることを示す */
+}
+.data-item:hover {
+    background-color: #dde2e6; /* ホバー時の背景色 */
 }
 
 .data-item h4 {
     margin-top: 0;
+    margin-bottom: 8px;
 }
 
 .data-item p {
     white-space: pre-wrap; /* 改行を保持 */
     word-break: break-all; /* 長い単語も折り返す */
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 0.9em; /* 少し文字を小さく */
 }
 
-.data-item button {
-    background-color: #dc3545;
-    font-size: 0.9em;
-    padding: 5px 10px;
-    margin-right: 5px;
+/* サマリー表示用のスタイル */
+.data-item .summary-view .item-content p,
+.data-item .summary-view .ai-response-summary {
+    max-height: 60px; /* 約3行分程度 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 表示行数を3行に制限 (WebKit系ブラウザ) */
+    -webkit-box-orient: vertical;
+    line-height: 1.4em;
 }
-.data-item button.edit-btn {
+.data-item .summary-view .ai-response-summary { /* AI回答サマリーは特に短く */
+    max-height: 4.2em; /* line-height * 3 */
+}
+
+
+/* 詳細表示用のスタイル (最初は非表示) */
+.data-item .detail-view {
+    display: none;
+}
+
+/* .expanded クラスが付与されたら詳細表示 */
+.data-item.expanded .summary-view {
+    display: none;
+}
+.data-item.expanded .detail-view {
+    display: block;
+}
+
+
+.data-item .actions button { /* ボタンのスタイルを少し調整 */
+    background-color: #dc3545;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    margin-right: 5px;
+    margin-top: 8px;
+}
+.data-item .actions button.edit-btn {
     background-color: #ffc107;
     color: #212529;
 }
-.data-item button.edit-btn:hover {
+.data-item .actions button.edit-btn:hover {
     background-color: #e0a800;
 }
-.data-item button.delete-btn:hover {
+.data-item .actions button.delete-btn:hover {
     background-color: #c82333;
 }
 
@@ -137,5 +184,8 @@ button:hover {
         width: 100%;
         margin-top: 5px;
         margin-bottom: 5px;
+    }
+    #backup-data-btn {
+        margin-bottom: 10px;
     }
 }
